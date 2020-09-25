@@ -1,0 +1,9 @@
+CHIP L2T2 {
+  IN d, k, s;
+  OUT b;
+  PARTS:
+    Not (in=s, out=nots);
+
+    And (a=k, b=nots, out=w1);
+    Or (a=w1, b=d, out=b);
+}
