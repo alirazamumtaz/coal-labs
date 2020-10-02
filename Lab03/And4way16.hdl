@@ -1,0 +1,8 @@
+CHIP And4way16 {
+  IN a[16], b[16], c[16], d[16];
+  OUT out[16];
+  PARTS:
+    And16(a=a, b = b, out=w1);
+    And16(a=w1, b = c, out=w2);
+    And16(a=w2, b = d, out=out);
+}

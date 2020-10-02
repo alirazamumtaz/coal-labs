@@ -1,0 +1,24 @@
+CHIP L3T1{
+  IN d0, d1, d2, d3, d4, d5, d6, d7, d8, d9, dA, dB, dC, dD, dE, dF;
+  OUT w, x, y, z;
+  PARTS:
+    Or4way(a = d8, b = d9, c = dA, d = dB, out = w1);
+    Or4way(a = dC, b = dD, c = dE, d = dF, out = w2);
+    Or (a = w1, b = w2, out = w);
+
+  	Or4way(a = d4, b = d5, c = d6, d = d7, out = x1);
+  	Or4way(a = dC, b = dD, c = dE, d = dF, out = x2);
+  	Or (a = x1, b = x2, out = x);
+
+    Or4way(a = d2, b = d3, c = d6, d = d7, out = y1);
+    Or4way(a = dA, b = dB, c = dE, d = dF, out = y2);
+  	Or (a = y1, b = y2, out = y);
+
+		Or4way(a = d1, b = d3, c = d5, d = d7, out = z1);
+		Or4way(a = d9, b = dB, c = dD, d = dF, out = z2);
+		Or (a = z1, b = z2, out = z);
+
+
+
+
+}
