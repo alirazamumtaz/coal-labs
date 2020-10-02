@@ -3,6 +3,6 @@ CHIP L3T2 {
   OUT out[16];
   PARTS:
     And4way16(a = a, b = b, c = c, d = d, out = temp1);
-    And4way16(a = e, b = f, c = g, d = h, out = temp2);
+    Or4way16(a = e, b = f, c = g, d = h, out = temp2);
     Mux16(a = temp1, b = temp2, sel = sel, out = out);
 }
