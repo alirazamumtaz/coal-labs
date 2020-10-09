@@ -1,0 +1,10 @@
+CHIP L4T1 {
+  IN a, b, cin, sel[2];
+  OUT cout, out;
+  PARTS:
+    And (a = a, b = b, out = andOut);
+    Or ( a = a, b = b, out = orOut);
+    Xor ( a = a, b = b, out = xorOut);
+    FullAdder ( a = a, b = b, c = cin, sum = adderSum, carry = cout );
+    Mux4way ( a = andOut, b = orOut, c = xorOut, d = adderSum, sel = sel, out = out);
+}
