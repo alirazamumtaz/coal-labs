@@ -1,0 +1,14 @@
+Program has a segmentation fault on line 6 when it attemps to access unalloacted memrory
+So first we have to set break points to stop execution of control and then check for values.
+For 10 values, program runs decently. (Becasue buf[10] variable has 10 bytes to store.)
+When this count increases, then a segmentation error occureed.
+CHAGES:
+	- At line 6 just revome the 100 size to 10 or "sizeof(buf)"
+STEPS
+
+	~ gcc -g -c Task03.c
+	~ gcc Task03.o
+	~ gdb a.out
+	~ b 6 if vr>10
+
+
