@@ -1,0 +1,38 @@
+1. We can pass command line arguments in runtime by two ways:
+	- set args arg1 arg2 ..
+	- run arg1 arg2 ..
+
+2. We can set break point by specifing condition:
+	break "lineNo" if "condition"
+i.e	break 7 if ch=','		// break executon at line 7 if
+					// ch has ch is equal to comma ','
+
+3.  We will use "next" command to execute next instruction of a c code
+    but it will not godeep in other library functions
+
+4. We will use "step" to get deep dive into to the function call.
+	- step			/* to execute single line of code (like next),
+				 * but if there is any function call, it'll deep
+			 	 * dive into the function and execute the
+			 	 * function's instructions one by one.
+				 */
+
+5. There are 3 different ways of continuing program after breakpoint:
+	- continue		// to continue till next breakpoint
+
+6. We'll use the following command:
+	- finish	// to continue till return or end of current function
+7. We'll use "print" command with respective variable name to see it's value.
+	- print rv		// variable in program
+	- print $temp		// gbd's temorary variabls
+
+8. We use "display" command to print the a variable after every next step
+	- display "variableName"
+i.e 	- display vr		// show content of vr
+
+9. We use "info locals" command to print a list of all the variables
+   of current function whlile program is running.
+	- info locals
+
+10. We can displaye names of all functions used in uder debgging program by using:
+	- info functions	// it will display functions in our prgram and also NON-Debugging symbols
