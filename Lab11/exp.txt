@@ -1,0 +1,58 @@
+In my program, value of rax register is 1. 
+
+Why this value:
+	- Actually rax register is used to set system call's file descriptor (fd). So there can be three types system calls on bassis of value of 'fd'.
+		*) 0 -> to set read syscall (pointing to keyboard).
+		*) 1 -> to set write write syscall (pointing to STDOUT which is actually screen)
+		*) 2 -> to set write error syscall (again pointing to STDOUT for errors)
+Since we have printed the output "Ali Raza" in my case, so we have used 1 fd. Therefore value of rax is 1. 
+
+Commands:
+After writing code in .nasm file, I have used these given commands:
+
+
+	┌──(kali㉿kali)-[~/Desktop/coal_lab_bcsf19m513/Lab11]
+	└─$ nasm -felf64 -g code.nasm
+		                                                                   
+	┌──(kali㉿kali)-[~/Desktop/coal_lab_bcsf19m513/Lab11]
+	└─$ ld code.o                
+		                                                                   
+	┌──(kali㉿kali)-[~/Desktop/coal_lab_bcsf19m513/Lab11]
+	└─$ gdb a.out
+	
+	GNU gdb (Debian 10.1-1+b1) 10.1
+	Copyright (C) 2020 Free Software Foundation, Inc.                          
+	License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+	This is free software: you are free to change and redistribute it.
+	There is NO WARRANTY, to the extent permitted by law.
+	Type "show copying" and "show warranty" for details.
+	This GDB was configured as "x86_64-linux-gnu".
+	Type "show configuration" for configuration details.
+	For bug reporting instructions, please see:
+	<https://www.gnu.org/software/gdb/bugs/>.
+	Find the GDB manual and other documentation resources online at:
+	    <http://www.gnu.org/software/gdb/documentation/>.
+
+	For help, type "help".
+	Type "apropos word" to search for commands related to "word"...
+	Reading symbols from a.out...
+
+	(gdb) b _start
+	Breakpoint 1 at 0x401000: file code.nasm, line 12.
+	(gdb) run
+	Starting program: /home/kali/Desktop/coal_lab_bcsf19m513/Lab11/a.out 
+
+	Breakpoint 1, _start () at code.nasm:12
+	12            Mov Rax,1
+	(gdb) ni
+	13            mov rdi,1 
+	(gdb) ni
+	14            mov rsi,msg
+	(gdb) ni
+	15            mov rdx,26
+	(gdb) ni
+	16            Syscall    
+	(gdb) print $rax
+	$1 = 1
+
+	
