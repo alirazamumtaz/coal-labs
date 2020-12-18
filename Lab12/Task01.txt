@@ -1,0 +1,11 @@
+ 	- (mov rax, rax) moves the content of rax register into rax register.
+   	- mov 0 into 16bit PTR arrray containing rbp-4.
+   	- (lea) loads address of local variable i stored at rbp-4 into rax register. Which works as a pointer.
+   	- it is used to increment the value of PTR array that has rax register in it, which has size of a single word.
+	- mov the hex number into Word length PTR that contains rax.
+	- mov the contents of msg into ecx register.
+	- add the contents of al general purpose register into eax and store it in eax.
+	- initializing an array of 8 bits that having 3 chars.
+	- calculates length from beginning of the current section to the current line and stores in len variable
+	- initialize 128 bytes of buffer.
+	- swaping or exchanhging the value of rax with rax.
