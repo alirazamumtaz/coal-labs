@@ -1,0 +1,2 @@
+In this task can call foo function using command line arguments including addess of foo function.
+First 10 byts will be on buff size and the 16 bytes for return address. So if somehow we can pass an arguments in well formate so that address of foo function is placed n stack in place of return address of caller, our foo function be called. 

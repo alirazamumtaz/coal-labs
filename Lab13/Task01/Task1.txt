@@ -1,0 +1,28 @@
+There are three functions in this executale:
+at line 4:	int foo(int, int); // at address 0x5555555546ca
+
+	  	0x00000000000006ca <+0>:	push   rbp
+   		0x00000000000006cb <+1>:	mov    rbp,rsp	;these two assebly instructions are prelog	
+   		
+
+   		0x00000000000006ce <+4>:	mov    DWORD PTR [rbp-0x4],edi
+   		0x00000000000006d1 <+7>:	mov    DWORD PTR [rbp-0x8],esi	;these are for arguments
+
+   		0x00000000000006d4 <+10>:	mov    edx,DWORD PTR [rbp-0x4]	; this is the first instruction inside foo()
+
+
+at line16:	int virus();	// at address 0x555555554721
+
+	   	0x0000000000000721 <+0>:	push   rbp
+   		0x0000000000000722 <+1>:	mov    rbp,rsp	;these two assebly instructions are prelog
+
+   		0x0000000000000725 <+4>:	lea    rdi,[rip+0xd4] # 0x800	; this is the first instruction inside foo()
+
+
+
+at line9:	int main();		// 	at address 0x5555555546de
+
+after ret instruction of foo, I have set value of rip to address of irus function using command:
+$ set $rip=0x555555554721 //address of virus
+No virus is running and SS is aslo attached.
+Thank you.
